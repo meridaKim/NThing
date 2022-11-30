@@ -1,7 +1,9 @@
 package main.java.dao;
 
 import main.java.dto.NThing;
+import main.java.util.DatabaseUtil;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 
 public class NThingRepository {
@@ -12,7 +14,7 @@ public static NThingRepository getInstance(){
     return instance;
 }
     public NThingRepository(){
-        NThing nthing1 = new NThing("ISBN5", "쿠팡베이직 네추럴 3겹 천연펄프 롤화장지 30m 3팩", 37490);
+        NThing nthing1 = new NThing(1, "쿠팡베이직 네추럴 3겹 천연펄프 롤화장지 30m 3팩", 37490);
         nthing1.setDescription(
                 "여긱 롤화장지 1팩씩 구매하실 2명 구합니다!");
         nthing1.setWriter("겸둥이");

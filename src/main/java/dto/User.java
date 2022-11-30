@@ -1,22 +1,23 @@
 package main.java.dto;
 
 public class User {
-    private String userID;
-    private String userPassword;
+    private String user_id;
+    private String user_pw;
 
-    public String getUserID() {
-        return userID;
+    public String getUser_id() {
+        return user_id;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getUser_pw() {
+        return user_pw;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setUser_pw(String user_pw) {
+        this.user_pw = user_pw;
     }
 }
+

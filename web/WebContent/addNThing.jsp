@@ -36,12 +36,6 @@
         </div>
         <form name="newNThing" action="processAddNThing.jsp" class="form-horizontal" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
             <div class="form-group row">
-                <label class="col-sm-2"><fmt:message key="NThingId"/></label>
-                <div class="col-sm-3">
-                    <input type="text" id="NThingId" name="NThingId" class="form-control">
-                </div>
-            </div>
-            <div class="form-group row">
                 <label class="col-sm-2"><fmt:message key="NThingName"/></label>
                 <div class="col-sm-3">
                     <input type="text" id="NThingName" name="NThingName" class="form-control">
@@ -51,6 +45,12 @@
                 <label class="col-sm-2"><fmt:message key="unitPrice"/></label>
                 <div class="col-sm-3">
                     <input type="text" id="unitPrice" name="unitPrice" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2"><fmt:message key="NThinger"/></label>
+                <div class="col-sm-3">
+                    <input type="text" id="NThinger" name="NThinger" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
@@ -86,7 +86,7 @@
             <div class="form-group row">
                 <label class="col-sm-2"><fmt:message key="unitsInStock"/></label>
                 <div class="col-sm-3">
-                    <input type="text" id="unitsInStock" name="unitsInstock" class="form-control">
+                    <input type="text" id="unitsInStock" name="unitsInStock" class="form-control">
                 </div>
             </div>
                 <%--		<div class="form-group row">--%>

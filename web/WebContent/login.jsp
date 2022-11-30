@@ -28,14 +28,14 @@
 				out.println("</div>");
 			}
 		%>
-		<form class="form-signin" action="./userJoinAction.jsp" method="post">
+		<form class="form-signin" action="processLogin.jsp" method="post">
 			<div class="form-group">
-				<label class="sr-only">UserID</label>
-				<input type="text" class="form-control" placeholder="userID" name='userID' required autofocus>
+				<label class="sr-only">user_id</label>
+				<input type="text" class="form-control" placeholder="user_id" name='user_id' required autofocus>
 			</div>
 			<div class="form-group">
-				<label class="sr-only">Password</label>
-				<input type="password" class="form-control" placeholder="userPassword" name='userPassword' required>
+				<label class="sr-only">user_pw</label>
+				<input type="password" class="form-control" placeholder="user_pw" name='user_pw' required>
 				<button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
 			</div>
 		</form>

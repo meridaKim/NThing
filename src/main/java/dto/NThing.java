@@ -1,7 +1,7 @@
 package main.java.dto;
 
 public class NThing {
-    private String NThingId;
+    private Integer NThingId;
     private String NThingName;//제품명
     private Integer unitPrice;//가격
     private String writer; //작성자
@@ -19,7 +19,7 @@ public class NThing {
     public NThing(){
         super();
     }
-    public NThing(String NThingId, String NThingName, Integer unitPrice){
+    public NThing(Integer NThingId, String NThingName, Integer unitPrice){
         this.NThingId = NThingId;
         this.NThingName = NThingName;
         this.unitPrice = unitPrice;
@@ -33,11 +33,11 @@ public class NThing {
         this.unitsInStock = unitInStock;
     }
 
-    public String getNThingId() {
+    public Integer getNThingId() {
         return NThingId;
     }
 
-    public void setNThingId(String NThingId) {
+    public void setNThingId(Integer NThingId) {
         this.NThingId = NThingId;
     }
 

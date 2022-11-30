@@ -79,9 +79,14 @@
 						cartList = new ArrayList<NThing>();
 					for (int i = 0; i< cartList.size(); i++) { //상품 리스트 하나씩 출력하기
 						NThing nThing = cartList.get(i);
+//						long stock = nThing.getUnitsInStock();
+//						stock = stock - 1;
+//						nThing.setUnitInStock(stock);
 						int total = nThing.getUnitPrice() * nThing.getQuantity();
 						sum = sum + total;
+
 				%>
+
 				<tr>
 					<td class="text-center"><em><%=nThing.getNThingName() %></em></td>
 					<td class="text-center"><%=nThing.getQuantity() %></td>
@@ -90,6 +95,7 @@
 				</tr>
 				<%
 					}
+
 				%>
 				<tr>
 					<td></td>

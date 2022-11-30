@@ -8,7 +8,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ page import="main.java.dto.NThing"%>
 <%@ page import="main.java.dao.NThingRepository"%>
-<%@ page errorPage="exceptionNoNThingId.jsp" %>
+<%--<%@ page errorPage="exceptionNoNThingId.jsp" %>--%>
+<%@ page import="java.sql.*"%>
 <jsp:useBean id="nThingDAO" class="main.java.dao.NThingRepository" scope="session"/>
 <html>
 <head>
@@ -31,37 +32,58 @@
         <h1 class="display-3">상품 정보</h1>
     </div>
 </div>
+<%--<%--%>
+<%--    String NThingId = request.getParameter("NThingId");--%>
+<%--    NThingRepository dao = NThingRepository.getInstance();--%>
+<%--    NThing nThing = dao.getNThingById(NThingId);--%>
+<%--%>--%>
+<%@ include file="dbconn.jsp"%>
 <%
     String NThingId = request.getParameter("NThingId");
-    NThingRepository dao = NThingRepository.getInstance();
-    NThing nThing = dao.getNThingById(NThingId);
+
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+
+    String sql = "SELECT * FROM nthings WHERE n_id = ?";
+    pstmt = conn.prepareStatement(sql);
+    pstmt.setString(1, NThingId);
+    rs = pstmt.executeQuery();
+    if (rs.next()) {
 %>
 <div class="container">
     <div class="row">
         <div class="col-md-5">
-            <img src="./resources/images/<%=nThing.getFilename()%>"
+            <img src="./resources/images/<%=rs.getString("n_fileName")%>"
                  style="width: 80%">
         </div>
         <div class="col-md-6">
-            <h3><%=nThing.getNThingName()%></h3>
-            <p><%=nThing.getDescription()%>
-            <p>
-                <b>제품 분류 코드:</b><span class="badge badge-danger"> <%=nThing.getNThingId()%></span>
+            <h3><b>제품 분류 코드:</b><span class="badge badge-danger"> <%=rs.getString("n_category")%></span></h3>
+            <p><b>제품명: </b><%=rs.getString("n_name")%>
+            <p><b>제품 아이디: </b><%=rs.getString("n_id")%>
             <p>
                 <b>작성자</b> :
-                    <%=nThing.getWriter()%>
+                    <%=rs.getString("n_writer")%>
                 				<p>
                 					<b>재고수</b> :
-                					<%=nThing.getUnitsInStock()%>
+                					<%=rs.getString("n_unitsInStock")%>
             <p>
                 <b>할인율</b> :
-                    <%=nThing.getTotalSalePercent()%>
+            <%=rs.getString("n_totalSalePercent")%>%</p>
             <p>
                 <b>작성일자</b> :
-                    <%=nThing.getWriteDate()%>
-            <h4><%=nThing.getUnitPrice()%>원
+                    <%=rs.getString("n_writeDate")%>
+            <p>
+                <b>원가</b> :
+                    <%=rs.getString("n_unitPrice")%>
+                <%
+                int saleprice = Integer.parseInt(rs.getString("n_unitPrice")) / (Integer.parseInt(rs.getString("n_nthinger")+1));
+            %>
+            <h4>할인가 <%=saleprice%>원
             </h4>
-            <p>	<form name="addForm" action="./addCart.jsp?id=<%=nThing.getNThingId()%>" method="post"></form>
+
+
+
+            <p>	<form name="addForm" action="./addCart.jsp?NThingId=<%=rs.getString("n_id")%>" method="post"></form>
             <a href="#" class="btn btn-info" onclick="addToCart()"> 제품 주문 &raquo;</a>
             <a href="cart.jsp" class="btn btn-warning">장바구니&raquo;</a>
             <a href="nthings.jsp" class="btn btn-secondary">제품 목록 &raquo;</a>
@@ -70,9 +92,17 @@
     </div>
     <hr>
 </div>
+<%
+    }
+    if (rs != null)
+        rs.close();
+    if (pstmt != null)
+        pstmt.close();
+    if (conn != null)
+        conn.close();
+%>
 <jsp:include page="footer.jsp" />
 </body>
 </html>
 </body>
 </html>
-

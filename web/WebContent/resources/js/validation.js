@@ -1,17 +1,17 @@
 function CheckAddNThing(){
 	
-	var NThingId = document.getElementById("NThingId");
+	var category = document.getElementById("category");
 	var NThingName = document.getElementById("NThingName");
 	var unitPrice = document.getElementById("unitPrice");
 	var unitsInStock = document.getElementById("unitsInStock");
 	
-	//아이디 체크
-	if(!check(/^ISBN[a-zA-Z0-9]{1,8}$/, NThingId,
-		"[제품 코드]\nISBN과 숫자를 조합하여 5~12까지 입력하세요.\n첫글자는 반드시 ISBN로 시작하세요." +
-		"생활용품:ISBN5, 취미용품:ISBN6, 음식배달:ISBN7, 기타:ISBN8"))
+	//분류코드 체크
+	if(!check(/^HOUSE[a-zA-Z0-9]{1,8}$/, category,
+		"[제품 코드]\n제품 코드를 입력해주세요!\n" +
+		"생활용품:HOUSE, 취미용품:HOBBY, 음식배달:DELIVER, 기타:EXC"))
 		return false;
 	
-	//상품명 체크
+	//제품명 체크
 	if(NThingName.value.length < 4 || NThingName.value.length > 12){
 		alert("[제품명]\n최소 4자에서 12자까지 입력하세요.");
 		NThingName.select();
@@ -19,7 +19,7 @@ function CheckAddNThing(){
 		return false;
 	}
 	
-	//상품가격 체크
+	//상품 원가 체크
 	if(unitPrice.value.length == 0 || isNaN(unitPrice.value)){
 		alert("[가격]\n숫자만 입력하세요.");
 		unitPrice.select();

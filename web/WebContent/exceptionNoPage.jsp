@@ -3,7 +3,7 @@
 <html>
 <head>
 <!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" 
+<link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <meta charset="utf-8">
 <title>NThing</title>
