@@ -32,19 +32,27 @@
     <div class="container">
         <div class="text-right">
             <a href="?language=ko">Korean</a> | <a href="?language=en">English</a>
-            <a href="logout.jsp" class="btn btn-sm btn-success pull-right">logout</a>
+            &nbsp;<a href="logout.jsp" class="btn btn-sm btn-success pull-right">logout</a>
         </div>
-        <form name="newNThing" action="processAddNThing.jsp" class="form-horizontal" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+        <form name="newNThing" action="processAddNThing.jsp" class="form-horizontal" id="needs-validation" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
             <div class="form-group row">
                 <label class="col-sm-2"><fmt:message key="NThingName"/></label>
                 <div class="col-sm-3">
                     <input type="text" id="NThingName" name="NThingName" class="form-control">
+                    <div class="invalid-feedback">
+                        [제품명]
+                        최소 1자에서 12자까지 입력하세요.
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2"><fmt:message key="unitPrice"/></label>
                 <div class="col-sm-3">
                     <input type="text" id="unitPrice" name="unitPrice" class="form-control">
+                    <div class="invalid-feedback">
+                        [가격] 숫자만 입력하세요.
+                    </div>
+
                 </div>
             </div>
             <div class="form-group row">
@@ -87,19 +95,12 @@
                 <label class="col-sm-2"><fmt:message key="unitsInStock"/></label>
                 <div class="col-sm-3">
                     <input type="text" id="unitsInStock" name="unitsInStock" class="form-control">
+                    <div class="invalid-feedback">
+                        [재고 수] 숫자만 입력하세요.
+                    </div>
                 </div>
             </div>
-                <%--		<div class="form-group row">--%>
-                <%--			<label class="col-sm-2"><fmt:message key="condition"/></label>--%>
-                <%--			<div class="col-sm-5">--%>
-                <%--				<input type="radio" name="condition" value="New " >--%>
-                <%--				신규 제품--%>
-                <%--				<input type="radio" name="condition" value="Old ">--%>
-                <%--				중고 제품--%>
-                <%--				<input type="radio" name="condition" value="Refurbished">--%>
-                <%--				재생 제품--%>
-                <%--			</div>--%>
-                <%--		</div>--%>
+
             <div class="form-group row">
                 <label class="col-sm-2"><fmt:message key="siteName"/></label>
                 <div class="col-sm-3">

@@ -7,45 +7,58 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="main.java.dto.User" %>
+<%@ page import="java.sql.ResultSet" %>
 <%@include file="dbconn.jsp"%>
-<html>
-<head>
-    <title>processLogin</title>
-</head>
-<body>
+
   <%
     request.setCharacterEncoding("utf-8");
-    String user_id = null;
-    String user_pw = null;
-
-    if (request.getParameter("user_id") != null) {
-      user_id = (String) request.getParameter("user_id");
-    }
-
-    if (request.getParameter("user_pw") != null) {
-      user_pw = (String) request.getParameter("user_pw");
-    }
-
-//    if (userID == null || userPassword == null) {
-//      PrintWriter script = response.getWriter();
-//      script.println("<script>");
-//      script.println("alert('입력이 안 된 사항이 있습니다.')");
-//      script.println("</script>");
-//      script.close();
-//      return;
-//    }
+    String user_id = request.getParameter("user_id");
+    String user_pw = request.getParameter("user_pw");
     PreparedStatement pstmt =null;
-    String sql = "insert into user values(?,?)";
+    ResultSet rs = null;
+    String sql = "select * from user";
     pstmt = conn.prepareStatement(sql);
-    pstmt.setString(1, user_id);
-    pstmt.setString(2, user_pw);
-    pstmt.executeUpdate();
+    rs =pstmt.executeQuery();
+    while (rs.next()) {
+      String user_name = rs.getString(1);
+      String user_psw = rs.getString(2);
+      if (rs.getString(1).equals(user_id)&& user_id !=null){
+        session.setAttribute("user_id", user_name);
+        session.setAttribute("user_pw",user_psw);
+        response.sendRedirect("successLogin.jsp");
+      }
+      else {
+        out.print("<script>alert('NThinger가 아닙니다!');  location.href='welcome.jsp'</script>");
+      }
 
+    }
     if (pstmt !=null)
       pstmt.close();
     if(conn != null)
       conn.close();
-    response.sendRedirect("nthings.jsp");
   %>
-</body>
-</html>
+
+<%--//    if (session.getAttribute("user_id")!= null) {--%>
+<%--//--%>
+<%--//      user_id = (String) session.getAttribute("user_id");--%>
+<%--//--%>
+<%--//    }else{--%>
+<%--//      session.setAttribute("user_id");--%>
+<%--//    }--%>
+<%--//--%>
+<%--//    if (request.getParameter("user_pw") != null) {--%>
+<%--//      user_pw = (String) request.getParameter("user_pw");--%>
+<%--//    }--%>
+<%--//--%>
+<%--////    PreparedStatement pstmt =null;--%>
+<%--//--%>
+<%--////    pstmt = conn.prepareStatement(sql);--%>
+<%--//    pstmt.setString(1, user_id);--%>
+<%--//    pstmt.setString(2, user_pw);--%>
+<%--//    pstmt.executeUpdate();--%>
+<%--//--%>
+<%--//--%>
+<%--//    response.sendRedirect("nthings.jsp");--%>
+
+

@@ -13,7 +13,7 @@
 <jsp:useBean id="nThingDAO" class="main.java.dao.NThingRepository" scope="session"/>
 <html>
 <head>
-<%--    <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />--%>
+    <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
     <title>상품 상세 정보</title>
 </head>
 <script type="text/javascript">
@@ -57,35 +57,26 @@
                  style="width: 80%">
         </div>
         <div class="col-md-6">
-            <h3><b>제품 분류 코드:</b><span class="badge badge-danger"> <%=rs.getString("n_category")%></span></h3>
-            <p><b>제품명: </b><%=rs.getString("n_name")%>
-            <p><b>제품 아이디: </b><%=rs.getString("n_id")%>
-            <p>
-                <b>작성자</b> :
-                    <%=rs.getString("n_writer")%>
-                				<p>
-                					<b>재고수</b> :
-                					<%=rs.getString("n_unitsInStock")%>
-            <p>
-                <b>할인율</b> :
-            <%=rs.getString("n_totalSalePercent")%>%</p>
-            <p>
-                <b>작성일자</b> :
-                    <%=rs.getString("n_writeDate")%>
-            <p>
-                <b>원가</b> :
-                    <%=rs.getString("n_unitPrice")%>
+            <h3>제품 분류 코드:<span class="badge badge-danger"> <%=rs.getString("n_category")%></span></h3>
+            <p>제품명: <b><%=rs.getString("n_name")%></b>
+            <p>제품 아이디: <b><%=rs.getString("n_id")%></b>
+            <p>작성한 엔띵러 : <b><%=rs.getString("n_writer")%>님</b>
+            <p>재고수 : <b><%=rs.getString("n_unitsInStock")%></b>
+            <p>공구 인원 수 : <b><span class="badge badge-info"><%=rs.getString("n_nthinger")%></span>명</b></p>
+            <p>할인율 :<b><%=rs.getString("n_totalSalePercent")%>%</b></p>
+            <p>작성일자 :
+                <b><%=rs.getString("n_writeDate")%></b>
+            <p>원가 :<b><%=rs.getString("n_unitPrice")%>원</b>
                 <%
-                int saleprice = Integer.parseInt(rs.getString("n_unitPrice")) / (Integer.parseInt(rs.getString("n_nthinger")+1));
+                int person = (Integer.parseInt(rs.getString("n_nthinger")))+1;
+                int saleprice = Integer.parseInt(rs.getString("n_unitPrice")) / person;
+
             %>
-            <h4>할인가 <%=saleprice%>원
-            </h4>
-
-
-
+            <p><b><%=rs.getString("n_description")%></b></p>
+            <h4>엔띵하면 <b><%=saleprice%>원!</b></h4>
             <p>	<form name="addForm" action="./addCart.jsp?NThingId=<%=rs.getString("n_id")%>" method="post"></form>
-            <a href="#" class="btn btn-info" onclick="addToCart()"> 제품 주문 &raquo;</a>
-            <a href="cart.jsp" class="btn btn-warning">장바구니&raquo;</a>
+            <a href="#" class="btn btn-info" onclick="addToCart()">엔띵할래요!&raquo;</a>
+            <a href="cart.jsp" class="btn btn-warning">담아둔 엔띵 제품 보기&raquo;</a>
             <a href="nthings.jsp" class="btn btn-secondary">제품 목록 &raquo;</a>
         </div>
 

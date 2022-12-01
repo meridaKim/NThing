@@ -48,7 +48,7 @@
         </div>
         <div class="col-md-7">
             <p><h5><b>[<%=rs.getString("n_category")%>] <%=rs.getString("n_name")%></b></h5>
-            <p style="padding-top: 20px"><%=rs.getString("n_description").substring(0, 100)%>...
+            <p style="padding-top: 20px"><%=rs.getString("n_description")%>...
             <p><%=rs.getString("n_writer")%> | <%=rs.getString("n_writeDate")%> | <%=rs.getString("n_unitPrice")%>원
         </div>
         <div class="col-md-2" style="padding-top: 70px">

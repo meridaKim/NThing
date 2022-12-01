@@ -63,7 +63,7 @@
                 int saleprice = Integer.parseInt(rs.getString("n_unitPrice")) / person;
 
             %>
-            <p><h4>할인가 : <%=saleprice%>원</h4></p>
+            <p> <h4>엔띵하면 <%=saleprice%>원!</h4></p>
             <a href="nthing.jsp?NThingId=<%=rs.getString("n_id")%>"
                class="btn btn-secondary" role="button"> 상세 정보 &raquo;></a>
         </div>

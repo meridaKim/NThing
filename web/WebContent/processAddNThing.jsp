@@ -24,7 +24,7 @@
 
   MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
 
-  String NThingId = multi.getParameter("NThingId");
+//  String NThingId = multi.getParameter("NThingId");
   String NThingName = multi.getParameter("NThingName");
   String unitPrice = multi.getParameter("unitPrice");
   String writer = multi.getParameter("writer");
@@ -37,12 +37,12 @@
   String NThinger =multi.getParameter("NThinger");
   Integer price;
   Integer nthinger;
-  Integer nthingid;
-  if (NThingId.isEmpty())
-    nthingid = 0;
-  else
-    nthingid = Integer.valueOf(NThingId);
-
+//  Integer nthingid =0;
+//  if (NThingId.isEmpty())
+//    nthingid = 0;
+//  else
+//    nthingid = Integer.valueOf(NThingId);
+//
 
   if (unitPrice.isEmpty())
     price = 0;
@@ -71,20 +71,19 @@
   String fileName = multi.getFilesystemName(fname);
 
   PreparedStatement pstmt =null;
-  String sql = "insert into nthings values(?,?,?,?,?,?,?,?,?,?,?,?)";
+  String sql = "insert into nthings (n_name,n_unitPrice,n_nthinger, n_totalSalePercent, n_description, n_category, n_writer, n_writedate, n_unitsInStock,n_sitename,n_fileName)values(?,?,?,?,?,?,?,?,?,?,?)";
   pstmt = conn.prepareStatement(sql);
-  pstmt.setInt(1, nthingid);
-  pstmt.setString(2, NThingName);
-  pstmt.setInt(3, price);
-  pstmt.setInt(4,nthinger);
-  pstmt.setLong(5,salePercent);
-  pstmt.setString(6,description);
-  pstmt.setString(7, category);
-  pstmt.setString(8, writer);
-  pstmt.setString(9,writeDate);
-  pstmt.setLong(10,stock);
-  pstmt.setString(11,siteName);
-  pstmt.setString(12,fileName);
+  pstmt.setString(1, NThingName);
+  pstmt.setInt(2, price);
+  pstmt.setInt(3,nthinger);
+  pstmt.setLong(4,salePercent);
+  pstmt.setString(5,description);
+  pstmt.setString(6, category);
+  pstmt.setString(7, writer);
+  pstmt.setString(8,writeDate);
+  pstmt.setLong(9,stock);
+  pstmt.setString(10,siteName);
+  pstmt.setString(11,fileName);
   pstmt.executeUpdate();
 
   if(pstmt !=null)

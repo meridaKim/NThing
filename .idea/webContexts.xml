@@ -8,6 +8,7 @@
         <entry key="file://$PROJECT_DIR$/web/WebContent/login.jsp" value="file://$PROJECT_DIR$/web/WebContent" />
         <entry key="file://$PROJECT_DIR$/web/WebContent/nthing.jsp" value="file://$PROJECT_DIR$/web/WebContent" />
         <entry key="file://$PROJECT_DIR$/web/WebContent/nthings.jsp" value="file://$PROJECT_DIR$/web/WebContent" />
+        <entry key="file://$PROJECT_DIR$/web/WebContent/processLogin.jsp" value="file://$PROJECT_DIR$/web/WebContent" />
         <entry key="file://$PROJECT_DIR$/web/WebContent/processUpdateNThing.jsp" value="file://$PROJECT_DIR$/web/WebContent" />
       </map>
     </option>
