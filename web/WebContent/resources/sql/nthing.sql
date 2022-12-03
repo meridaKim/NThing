@@ -5,6 +5,10 @@ create table if not exists user(
     cart_id int
     PRIMARY KEY (user_id)
     )
+insert into user (user_id, useer_pw,cart_id) values('admin','admin1234',1);
+insert into user (user_id, useer_pw,cart_id) values('sujin','123',2);
+insert into user (user_id, useer_pw,cart_id) values('yejin','1234',3);
+insert into user (user_id, useer_pw,cart_id) values('yujin','1234',4);
 create table if not exists nthings(
     n_id VARCHAR(10) NOT NULL,
     n_name VARCHAR(20),

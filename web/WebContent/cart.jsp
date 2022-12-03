@@ -44,6 +44,7 @@
 
 	<div class="container">
 		<h1 class = "display-3" style="font-family: Gugi">장바구니</h1>
+        //로그인 세션 유지
 		<%
 			request.setCharacterEncoding("utf-8");
 			String user_id = (String) session.getAttribute("user_id"); //id라는 String형으로 session을 받아옴

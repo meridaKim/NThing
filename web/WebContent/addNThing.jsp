@@ -26,6 +26,7 @@
     <%@ include file="menu.jsp" %>
         <div class="container">
             <h1 class="display-3"><fmt:message key="title"/></h1>
+            //로그인 세션 유지
             <%
                 request.setCharacterEncoding("utf-8");
                 String user_id = (String) session.getAttribute("user_id"); //id라는 String형으로 session을 받아옴
@@ -57,20 +58,13 @@
                 <label class="col-sm-2"><fmt:message key="NThingName"/></label>
                 <div class="col-sm-3">
                     <input type="text" id="NThingName" name="NThingName" class="form-control">
-                    <div class="invalid-feedback">
-                        [제품명]
-                        최소 1자에서 12자까지 입력하세요.
-                    </div>
+
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2"><fmt:message key="unitPrice"/></label>
                 <div class="col-sm-3">
                     <input type="text" id="unitPrice" name="unitPrice" class="form-control">
-                    <div class="invalid-feedback">
-                        [가격] 숫자만 입력하세요.
-                    </div>
-
                 </div>
             </div>
             <div class="form-group row">
@@ -113,9 +107,7 @@
                 <label class="col-sm-2"><fmt:message key="unitsInStock"/></label>
                 <div class="col-sm-3">
                     <input type="text" id="unitsInStock" name="unitsInStock" class="form-control">
-                    <div class="invalid-feedback">
-                        [재고 수] 숫자만 입력하세요.
-                    </div>
+
                 </div>
             </div>
 

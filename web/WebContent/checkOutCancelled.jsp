@@ -5,6 +5,7 @@
 <title>주문 취소</title>
 </head>
 <body>
+//기능 구현 중
 	<jsp:include page="menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
