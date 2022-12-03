@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+User -> login.jsp :로그인하기 Request
+login.jsp -> processLogin.jsp : user_id, user_pw로 Request
+processLogin.jsp ->
+@enduml

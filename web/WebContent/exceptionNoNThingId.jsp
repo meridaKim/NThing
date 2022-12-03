@@ -5,7 +5,8 @@
   Time: 오후 10:48
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%--<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>--%>
+<%@ page isErrorPage="true"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,7 @@
 <%@ include file="menu.jsp" %>
 
 <%!
-  String main = "해당 제품이 존재하지 않습니다.";
+  String main = "There's no NThingId ";
 %>
 <div class="jumbotron">
   <div class="container">
@@ -30,8 +31,8 @@
 
 <div class="container">
   <div class="text-center">
-    <p><%=request.getRequestURL() %>?<%=request.getQueryString() %>
-    <p> <a href="nthings.jsp" class="btn btn-secondary"> 제품 목록 &raquo;</a>
+    <p><%=request.getRequestURL()%>?<%=request.getQueryString() %>
+    <p> <a href="nthings.jsp" class="btn btn-secondary"> show NThings &raquo;</a>
       <%--<h3><%@ include file="date.jsp" %></h3>--%>
   </div>
 </div>

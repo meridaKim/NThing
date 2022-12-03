@@ -2,6 +2,7 @@ use nthing;
 create table if not exists user(
     user_id VARCHAR(10) NOT NULL,
     user_pw  VARCHAR(10) NOT NULL,
+    cart_id int
     PRIMARY KEY (user_id)
     )
 create table if not exists nthings(
@@ -25,7 +26,7 @@ ALTER TABLE nthings modify COLUMN user_id VARCHAR(10) NOT NULL;
 alter table nthings modify n_id int(20) unsigned;
 alter table nthings modify n_category varchar(20) not null;
 Alter table nthings MODIFY n_name varchar(80);
-Alter table nthings MODIFY n_sitename varchar(200);
+Alter table nthings MODIFY n_sitename varchar(500);
 Alter table nthings MODIFY n_fileName varchar(200);
 
 ALTER TABLE nthings MODIFY n_id INT(20) auto_increment NOT NULL;
@@ -55,3 +56,12 @@ insert into nthings (n_name, n_unitPrice, n_nthinger, n_totalSalePercent, n_desc
                                                                                                                                                                                    'https://www.coupang.com/vp/products/6748251873?itemId=14502777312&vendorItemId=72077387727&q=%EC%83%9D%EC%88%98+2%EB%A6%AC%ED%84%B0&itemsCount=36&searchId=68aa8f51414549e996fcd2ef20023b88&rank=1&isAddedCart=',
                                                                                                                                                                                    'NThing2.png');
 
+create table nthingcart(
+                           cart_id  int auto_increment primary key,
+                           n_id int not null,
+                           nthing_count int auto_increment ,
+                           n_name varchar(80),
+                           n_nthinger int,
+                           n_unitPrice int,
+                           foreign key (n_id) references nthings(n_id)
+)charset=utf8mb4;

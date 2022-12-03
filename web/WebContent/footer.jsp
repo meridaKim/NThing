@@ -4,7 +4,9 @@
   Date: 2022-11-27
   Time: 오후 2:19
   To change this template use File | Settings | File Templates.
---%><head>
+--%>
+<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- mobile metas -->
@@ -48,9 +50,9 @@
         <div class="row">
           <div class="col-sm-12">
             <ul class="conta">
-              <li><i class="fa fa-phone" aria-hidden="true"></i> Call Now  +01 123467890</li>
-              <li><i class="fa fa-map-marker" aria-hidden="true"></i> Location</li>
-              <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> demo@gmail.com</a></li>
+              <li><i class="fa fa-phone" aria-hidden="true"></i> 대표 전화010-1234-5678</li>
+              <li><i class="fa fa-map-marker" aria-hidden="true"></i> 주소 : 경기도 수원시 광교산로 154-42 경기드림타워/li>
+              <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> sujin7187@kyonggi.ac.kr</a></li>
             </ul>
           </div>
         </div>
@@ -59,42 +61,43 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <img class="tex_left" src="images/logo2.png" alt="#"/>
+          <h2 style="color: white">엔띵</h2>
         </div>
         <div class=" col-md-3 col-sm-6">
-          <p class="variat">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Lorem ipsum </p>
+          <p class="variat">기숙사에서 거주하면서
+            비싼 배달료와 생활용품 때문에 고민이셨나요?
+            엔띵으로
+            같이 공구해요!</p>
         </div>
         <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
           <h3>Information  </h3>
           <ul class="link_menu">
-            <li> There are many </li>
-            <li> variations of pas</li>
-            <li> sages of Lorem </li>
-            <li> Ipsum available, </li>
-            <li>but the majority </li>
-            <li>have suffered  </li>
+            <li> 함께 나누고</li>
+            <li> 아껴쓰는 </li>
+            <li> 아나바다 정신이 </li>
+            <li> 경기드림타워에도 </li>
+            <li> 가득하면 좋겠어요!</li>
           </ul>
         </div>
         <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
           <h3>Helpful Links</h3>
           <ul class="link_menu">
-            <li> There are many </li>
-            <li> variations of pas</li>
-            <li> sages of Lorem </li>
-            <li> Ipsum available, </li>
-            <li>but the majority </li>
-            <li>have suffered  </li>
+            <li> jsp </li>
+            <li> js</li>
+            <li> css</li>
+            <li> mysql</li>
+            <li>java</li>
           </ul>
         </div>
         <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
-          <h3>Supported</h3>
+          <h3>제작자</h3>
           <ul class="link_menu">
-            <li> There are many </li>
-            <li> variations of pas</li>
-            <li> sages of Lorem </li>
-            <li> Ipsum available, </li>
-            <li>but the majority </li>
-            <li>have suffered  </li>
+            <li> 컴퓨터공학부</li>
+            <li> 201813110</li>
+            <li> 김수진 </li>
+            <li> 2022-2</li>
+            <li>지능웹설계</li>
+            <li>텀 프로젝트</li>
           </ul>
         </div>
         <div class="col-sm-12">
@@ -111,13 +114,14 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10 offset-md-1">
-            <p>© 2019 All Rights Reserved.<a href="https://html.design/"> Free html Templates</a></p>
+            <p>&copy; Share Everything! Anything! NThing!</p>
+            <p>© 2022 All Rights Reserved.<a href="#"> 컴퓨터 공학부 201813110 김수진</a></p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <p>&copy; Share Everything! Anything! NThing!</p>
+
 </footer>
 </body>
 <script src="./resources/js/jquery.min.js"></script>

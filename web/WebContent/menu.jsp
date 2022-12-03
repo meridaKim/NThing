@@ -36,19 +36,24 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-
+    <link href="https://fonts.googleapis.com/css?family=Gugi:400" rel="stylesheet">
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script></head>
+<style>
+    .logo{
+        font-size: 50px;
+    }
+</style>
 <body class="main-layout">
 <div id="myNav" class="menu_sid">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="menu_sid-content">
-        <a href="./nthings.jsp">Home</a>
-        <a href="./nthings.jsp">NThing 둘러보기</a>
-        <a href="./addNThing.jsp">NThing할 제품 등록하기</a>
-        <a href="./editNThing.jsp?edit=update">게시글 수정</a>
-        <a href="./editNThing.jsp?edit=delete">게시글 삭제</a>
+        <a href="./welcome.jsp"style="font-family: Gugi">Home</a>
+        <a href="./nthings.jsp"style="font-family: Gugi">NThing 둘러보기</a>
+        <a href="./addNThing.jsp"style="font-family: Gugi">NThing할 제품 등록하기</a>
+        <a href="./editNThing.jsp?edit=update"style="font-family: Gugi">게시글 수정</a>
+        <a href="./editNThing.jsp?edit=delete"style="font-family: Gugi">게시글 삭제</a>
     </div>
 </div>
 <header>
@@ -72,8 +77,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="logo">
-                                <a href="welcome.jsp"><img src="./resources/images/logo.png" alt="#"/></a>
+                            <div class="logo" style="font-family: Gugi" >
+                                <a href="welcome.jsp" alt="welcome.jsp"/><h1>엔띵</h1></a>
                             </div>
                         </div>
                     </div>
@@ -84,12 +89,13 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div class="banner_text">
-                                <h1>Share Everything!<br> Anything! <br>NThing!</h1>
-                                <a class="get_btn" href="#about" role="button" >About Protien</a> <a class="get_btn" href="#contact" role="button">Contact Us</a>
+
+                                <h1 style="font-family: Gugi">무엇이든지<br> 어느 것이든지<br>엔띵!</h1>
+                                <a class="get_btn" href="nthings.jsp" role="button" >엔띵 둘러보기</a><a class="get_btn" href="login.jsp" role="button">로그인하기</a>
                             </div>
                         </div>
                         <div class="col-md-7">
-                            <img class="bann_img" src="./resources/images/banner_ing.png" alt="#"/>
+                            <img class="bann_img" src="./resources/images/nthingbanner.png" alt="#"/>
                         </div>
                     </div>
                 </div>

@@ -24,11 +24,29 @@
     <fmt:bundle basename="main.java.bundle.message">
 
     <%@ include file="menu.jsp" %>
-    <div class="jumbotron">
         <div class="container">
             <h1 class="display-3"><fmt:message key="title"/></h1>
+            <%
+                request.setCharacterEncoding("utf-8");
+                String user_id = (String) session.getAttribute("user_id"); //id라는 String형으로 session을 받아옴
+                if(user_id!=null){
+            %>
+            <h3>
+                <%=(String)session.getAttribute("user_id") %>로 로그인 중입니다.
+            </h3>
+            <a href="logout.jsp">Logout</a>
+            <%
+            }else{
+            %>
+            <h3> 회원이 아닙니다!</h3>
+            <script>
+                location.href ='login.jsp';
+            </script>
+            <%
+                }
+            %>
+
         </div>
-    </div>
     <div class="container">
         <div class="text-right">
             <a href="?language=ko">Korean</a> | <a href="?language=en">English</a>

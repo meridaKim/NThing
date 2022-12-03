@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+User -> nthing.jsp : 제품 Request
+nthing.jsp --> User: 제품 Response
+User -> nthing.jsp : 제품 장바구니 추가 Request
+nthing.jsp -> addcart.jsp: 제품 장바구니 추가 Request
+addcart.jsp --> cart.jsp: 제품 장바구니 추가 Response
+User -> cart.jsp : 제품 결제하기 Request
+cart.jsp -> processPaymentInfo.jsp :제품 결제하기 Request
+processPaymentInfo.jsp -> orderConfirmation.jsp : 결제 내역 Response
+orderConfirmation.jsp -> thankCustomer.jsp : 결제 완료 Request
+thankCustomer.jsp -> User : 결제 완료 Response
+
+
+
+@enduml

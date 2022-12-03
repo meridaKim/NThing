@@ -13,23 +13,43 @@
     <title>수정할 게시글 선택하기</title>
     <script type="text/javascript">
         function deleteConfirm(NThingId) {
-            if (confirm("해당 도서를 삭제합니다!!") == true)
+            if (confirm("해당 게시글을 삭제합니다!!") == true)
                 location.href = "./deleteNThing.jsp?NThingId=" + NThingId;
             else
                 return;
         }
     </script>
 </head>
+
 <%
     String edit = request.getParameter("edit");
 %>
 <body>
 <jsp:include page="menu.jsp" />
-<div class="jumbotron">
+
     <div class="container">
-        <h1 class="display-3">게시글 선택수정</h1>
+        <h1 class="display-3" style="font-family: Gugi">게시글 선택수정</h1>
+        <%
+            request.setCharacterEncoding("utf-8");
+            String user_id = (String) session.getAttribute("user_id"); //id라는 String형으로 session을 받아옴
+            if(user_id!=null){
+        %>
+        <h3>
+            <%=(String)session.getAttribute("user_id") %>으로 현재 로그인 중입니다.
+        </h3>
+        <a href="logout.jsp">Logout</a>
+        <%
+        }else{
+        %>
+        <script>
+            location.href ='welcome.jsp';
+        </script>
+        <%
+            }
+        %>
+
     </div>
-</div>
+
 <div class="container">
     <%@ include file="dbconn.jsp"%>
     <%
@@ -41,6 +61,7 @@
         rs = pstmt.executeQuery();
         while (rs.next()) {
     %>
+
     <div class="row">
         <div class="col-md-3" align="center">
             <img src="./resources/images/<%=rs.getString("n_fileName")%>"

@@ -2,29 +2,32 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="main.java.dto.NThing" %>
 <%@ page import="main.java.dao.NThingRepository" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %><%@ include file="dbconn.jsp"%>
 
 <%
-String NThingId = request.getParameter("NThingId");
+
+	String NThingId = request.getParameter("NThingId");
 if(NThingId == null || NThingId.trim().equals("")){
 	response.sendRedirect("nthings.jsp");
 	return;
 }
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
 
-	NThingRepository dao = NThingRepository.getInstance();
+	String sql = "SELECT * FROM nthingcart WHERE n_id = ?";
+	pstmt = conn.prepareStatement(sql);
+	pstmt.setString(1, NThingId);
+	rs = pstmt.executeQuery();
 
-	NThing nThing = dao.getNThingById(NThingId);
-if(nThing == null){
-	response.sendRedirect("exceptionNoNThingId.jsp");
-}
-
-ArrayList<NThing> cartList = (ArrayList<NThing>)session.getAttribute("cartlist");
-	NThing goodsQnt = new NThing();
-for(int i=0; i<cartList.size(); i++){
-	goodsQnt = cartList.get(i);
-	if(goodsQnt.getNThingId().equals(NThingId)){
-		cartList.remove(goodsQnt);
+	int nthingid = Integer.parseInt(NThingId);
+	if (rs.next()) {
+		sql = "delete from nthingcart WHERE n_id=?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, nthingid);
+		pstmt.executeUpdate();
 	}
-}
 
-response.sendRedirect("cart.jsp");
+	response.sendRedirect("cart.jsp");
+
 %>

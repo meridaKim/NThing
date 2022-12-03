@@ -8,7 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ page import="main.java.dto.NThing"%>
 <%@ page import="main.java.dao.NThingRepository"%>
-<%--<%@ page errorPage="exceptionNoNThingId.jsp" %>--%>
+<%@ page errorPage="exceptionNoNThingId.jsp" %>
 <%@ page import="java.sql.*"%>
 <jsp:useBean id="nThingDAO" class="main.java.dao.NThingRepository" scope="session"/>
 <html>
@@ -18,20 +18,23 @@
 </head>
 <script type="text/javascript">
     function addToCart(){
+        var user_id = '<%=(String)session.getAttribute("user_id")%>';
         if(confirm("해당 제품을 장바구니에 추가하시겠습니까?")){
-            document.addForm.submit();
-        }else{
-            document.addForm.reset();
+           if(user_id=="null"){
+               confirm("로그인이 필요합니다.")
+               location.href("login.jsp");
+           }
+           else{
+               document.addForm.submit();
+        }
         }
     }
 </script>
 <body>
 <jsp:include page="menu.jsp" />
-<div class="jumbotron">
     <div class="container">
-        <h1 class="display-3">상품 정보</h1>
+        <h1 class="display-3"style="font-family: Gugi">상품 정보</h1>
     </div>
-</div>
 <%--<%--%>
 <%--    String NThingId = request.getParameter("NThingId");--%>
 <%--    NThingRepository dao = NThingRepository.getInstance();--%>
@@ -40,7 +43,10 @@
 <%@ include file="dbconn.jsp"%>
 <%
     String NThingId = request.getParameter("NThingId");
-
+    if(NThingId == null || NThingId.trim().equals("")) {
+        response.sendRedirect("exceptionNoNThingId.jsp");
+        return;
+    }
     PreparedStatement pstmt = null;
     ResultSet rs = null;
 
@@ -75,7 +81,7 @@
             <p><b><%=rs.getString("n_description")%></b></p>
             <h4>엔띵하면 <b><%=saleprice%>원!</b></h4>
             <p>	<form name="addForm" action="./addCart.jsp?NThingId=<%=rs.getString("n_id")%>" method="post"></form>
-            <a href="#" class="btn btn-info" onclick="addToCart()">엔띵할래요!&raquo;</a>
+            <a href="cart.jsp?NThingId=<%=rs.getString("n_id")%>" class="btn btn-info" onclick="addToCart()">엔띵할래요!&raquo;</a>
             <a href="cart.jsp" class="btn btn-warning">담아둔 엔띵 제품 보기&raquo;</a>
             <a href="nthings.jsp" class="btn btn-secondary">제품 목록 &raquo;</a>
         </div>

@@ -16,17 +16,17 @@
 <html>
 <head>
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans:400" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>NThing 목록</title>
 </head>
 <body>
 <jsp:include page="menu.jsp" />
-<div class="jumbotron">
     <div class="container">
-        <h1 class="display-3">NThing List</h1>
+        <h1 class="display-3" style="font-family: Gugi">NThing List</h1>
         <p>엔띵러들과 함께 공구해요!</p>
     </div>
-</div>
+
 <%--<%--%>
 <%--    NThingRepository dao = NThingRepository.getInstance();--%>
 <%--    ArrayList<NThing> listOfNThings = dao.getAllNThing();--%>
@@ -56,22 +56,19 @@
             <p><%=rs.getString("n_description")%></p>
             <p><%=rs.getString("n_writer")+ " | 원가 : "  + rs.getString("n_unitPrice")%>원
             </p>
-            <p>할인율: <%=rs.getString("n_totalSalePercent")%>%</p>
+            <p style="color: red">할인율: <b><%=rs.getString("n_totalSalePercent")%>%</p>
             <p><%=rs.getString("n_description")%></p>
             <%
                 int person = (Integer.parseInt(rs.getString("n_nthinger")))+1;
                 int saleprice = Integer.parseInt(rs.getString("n_unitPrice")) / person;
 
             %>
-            <p> <h4>엔띵하면 <%=saleprice%>원!</h4></p>
+            <p> <h4 style="font-family: Black Han Sans">엔띵하면 <%=saleprice%>원!</h4></p>
             <a href="nthing.jsp?NThingId=<%=rs.getString("n_id")%>"
                class="btn btn-secondary" role="button"> 상세 정보 &raquo;></a>
         </div>
     </div>
     <hr style="border: grey 1px dashed">
-<%--    <%--%>
-<%--        }--%>
-<%--    %>--%>
     <%
         }
         if (rs != null)

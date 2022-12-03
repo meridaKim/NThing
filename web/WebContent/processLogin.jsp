@@ -23,15 +23,14 @@
     while (rs.next()) {
       String user_name = rs.getString(1);
       String user_psw = rs.getString(2);
-      if (rs.getString(1).equals(user_id)&& user_id !=null){
+      if (rs.getString(1).equals(user_id)&& user_id !=null &&rs.getString(2).equals(user_pw) && user_pw != null) {
         session.setAttribute("user_id", user_name);
-        session.setAttribute("user_pw",user_psw);
-        response.sendRedirect("successLogin.jsp");
-      }
-      else {
-        out.print("<script>alert('NThinger가 아닙니다!');  location.href='welcome.jsp'</script>");
-      }
+          session.setAttribute("user_pw", user_psw);
+          response.sendRedirect("welcome.jsp");
+        } else {
+          out.print("<script>alert('NThinger가 아닙니다!');  location.href='welcome.jsp'</script>");
 
+        }
     }
     if (pstmt !=null)
       pstmt.close();

@@ -35,6 +35,7 @@
   String unitsInStock = multi.getParameter("unitsInStock");
   String totalSalePercent = multi.getParameter("totalSalePercent");
   String NThinger =multi.getParameter("NThinger");
+
   Integer price;
   Integer nthinger;
 //  Integer nthingid =0;

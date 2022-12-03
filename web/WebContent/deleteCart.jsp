@@ -3,8 +3,8 @@
 <%@ page import="main.java.dao.NThingRepository" %>
 
 <%
-String id = request.getParameter("cartId");
-if(id == null || id.trim().equals("")){
+String cartId= request.getParameter("cartId");
+if(cartId == null || cartId.trim().equals("")){
 	response.sendRedirect("cart.jsp");
 	return;
 }

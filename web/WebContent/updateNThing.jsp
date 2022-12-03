@@ -14,11 +14,10 @@
 </head>
 <body>
 <jsp:include page="menu.jsp" />
-<div class="jumbotron">
+
     <div class="container">
-        <h1 class="display-3">게시글 수정</h1>
+        <h1 class="display-3" style="font-family: Gugi">게시글 수정</h1>
     </div>
-</div>
 <%@ include file="dbconn.jsp"%>
 <%
     String NThingId = request.getParameter("NThingId");

@@ -7,53 +7,28 @@
 <%@ include file="dbconn.jsp"%>
 <%
 String NThingId = request.getParameter("NThingId");
+
+
 if(NThingId == null || NThingId.trim().equals("")){
 	response.sendRedirect("nthings.jsp");
 	return;
 }
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	String sql = "SELECT * FROM nthings WHERE n_id = ?";
+
+	String sql = "SELECT * FROM nthings WHERE n_id = 9";
 	pstmt = conn.prepareStatement(sql);
-	pstmt.setString(1, NThingId);
+//	int nthingid = Integer.parseInt(NThingId);
+//	pstmt.setInt(1, nthingid);
 	rs = pstmt.executeQuery();
-	if (rs.next()) {
 
-		if (rs.getString("n_id") == null) {
-			response.sendRedirect("exceptionNoNThingId.jsp");
-		}
-
-		ArrayList<NThing> goodsList = dao.getAllNThing();
-		NThing goods = new NThing();
-		for (int i = 0; i < goodsList.size(); i++) {
-			goods = goodsList.get(i);
-			if (goods.getNThingId().equals(NThingId)) {
-				break;
+			if (rs.next()) {
+				 sql = "insert into nthingcart (n_id, n_name,n_unitPrice,n_nthinger) select n_id, n_name, n_unitPrice, n_nthinger from nthings WHERE n_id=9";
+				pstmt = conn.prepareStatement(sql);
+//				pstmt.setInt(1,nthingid);
+				pstmt.executeUpdate();
 			}
-		}
 
-		ArrayList<NThing> list = (ArrayList<NThing>) session.getAttribute("cartlist");
-		if (list == null) {
-			list = new ArrayList<NThing>();
-			session.setAttribute("cartlist", list);
-		}
+		response.sendRedirect("cart.jsp");
 
-		int cnt = 0;
-		NThing goodsQnt = new NThing();
-		for (int i = 0; i < list.size(); i++) {
-			goodsQnt = list.get(i);
-			if (goodsQnt.getNThingId().equals(NThingId)) {
-				cnt++;
-				int orderQuantity = goodsQnt.getQuantity() + 1;
-				goodsQnt.setQuantity(orderQuantity);
-			}
-		}
-
-		if (cnt == 0) {
-			goods.setQuantity(1);
-			list.add(goods);
-		}
-
-		response.sendRedirect("nthing.jsp?NThingId=" + NThingId);
-	}
 %>
